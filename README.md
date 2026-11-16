@@ -71,9 +71,9 @@ The configuration tests Desktop, Tablet and Mobile viewports against the supplie
 
 **Important:** Do not run `backstop reference` or `backstop approve` during normal verification. Those commands can replace the visual baselines. The supplied reference files must remain unchanged.
 
-## Final visual test result
+## Previous verified visual test result
 
-Test run: November 11, 2026.
+Test run: November 11, 2026. This result predates the latest responsive refinements and the stricter 3% threshold; rerun the visual tests to validate the updated page.
 
 - Desktop: PASS
 - Tablet: PASS
@@ -85,7 +85,7 @@ Report files:
 - `backstop_data/bitmaps_test/20261111-024352/report.json`
 - `backstop_data/html_report/index.html`
 
-The configured BackstopJS mismatch threshold is 30%.
+The configured BackstopJS mismatch threshold is 3% for Desktop, Tablet and Mobile.
 
 ## Implementation notes and limitations
 
