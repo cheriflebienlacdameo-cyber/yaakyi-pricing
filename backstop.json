@@ -32,7 +32,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 30,
+      "misMatchThreshold": 3,
       "requireSameDimensions": false
     },
         {
@@ -52,7 +52,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 30,
+      "misMatchThreshold": 3,
       "requireSameDimensions": false
     },
         {
@@ -72,7 +72,7 @@
       "selectors": [],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 30,
+      "misMatchThreshold": 3,
       "requireSameDimensions": false
     }
   ],
