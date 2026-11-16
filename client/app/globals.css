@@ -486,3 +486,352 @@ button, a { font: inherit; }
     color: #ff786f;
   }
 }
+
+
+/* ===== RESPONSIVE REFINEMENT =====
+   Keep the existing desktop composition, but let cards reflow naturally
+   before their fixed desktop dimensions can cause horizontal overflow.
+*/
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.pricing-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.pricing-content {
+  width: 100%;
+  max-width: 1120px;
+  min-width: 0;
+}
+
+.plans-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Compact desktop/tablet widths: switch back to normal document flow. */
+@media (min-width: 601px) and (max-width: 1199px) {
+  .pricing-content {
+    max-width: 100%;
+    padding-left: clamp(20px, 4vw, 40px);
+    padding-right: clamp(20px, 4vw, 40px);
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    grid-auto-rows: auto;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: clamp(18px, 2.5vw, 28px);
+  }
+
+  .plan-card,
+  .plan-card.free {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    padding: 24px 20px 22px;
+    overflow: visible;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .plan-1,
+  .plan-2,
+  .plan-3,
+  .plan-4,
+  .plan-5 {
+    grid-column: auto;
+    grid-row: auto;
+    margin: 0;
+  }
+
+  .plan-heading {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    min-height: 58px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .plan-heading > div:first-child {
+    min-width: 0;
+  }
+
+  .plan-heading h2 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .plan-description {
+    margin-top: 7px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .badges {
+    position: static;
+    max-width: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .badge {
+    width: auto !important;
+    min-height: 24px;
+    height: auto;
+    padding: 5px 10px;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .price-line,
+  .plan-1 .price-line {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 76px;
+    height: auto;
+    padding: 12px 0;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    white-space: normal;
+    gap: 5px 8px;
+  }
+
+  .price-line strong {
+    font-size: clamp(38px, 5vw, 50px);
+    line-height: 1.1;
+  }
+
+  .price-line span {
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .plan-button,
+  .plan-1 .plan-button {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 45px;
+    min-height: 45px;
+    flex: 0 0 45px;
+    margin: 4px 0 0;
+  }
+
+  .feature-list,
+  .plan-1 .feature-list {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    margin: 22px 0 0;
+    padding: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, .16);
+    border-radius: 0;
+  }
+
+  .feature-list li {
+    width: 100%;
+    min-height: 20px;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+  .feature-check,
+  .feature-cross {
+    flex: 0 0 17px;
+    width: 17px;
+    height: 17px;
+    line-height: 17px;
+  }
+}
+
+/* Narrow tablet and mobile: one card per row, with comfortable spacing. */
+@media (max-width: 767px) {
+  .plans-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    min-width: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .account-actions {
+    gap: 9px;
+  }
+
+  .free-plan-pill {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .pricing-content {
+    padding: 28px 16px 56px;
+  }
+
+  .intro {
+    margin: 34px 0 32px;
+    padding: 0 4px;
+  }
+
+  .intro h1 {
+    font-size: clamp(26px, 7vw, 32px);
+    line-height: 1.2;
+  }
+
+  .intro p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .plans-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .plan-card,
+  .plan-card.free {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    padding: 22px 18px 20px;
+    gap: 0;
+  }
+
+  .plan-1,
+  .plan-2,
+  .plan-3,
+  .plan-4,
+  .plan-5,
+  .plan-card:nth-child(n) {
+    margin: 0;
+    transform: none;
+  }
+
+  .plan-heading {
+    min-height: 0;
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+
+  .plan-heading h2 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .plan-description {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .badges {
+    max-width: 52%;
+    gap: 5px;
+  }
+
+  .badge {
+    padding: 5px 8px;
+    font-size: 10px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .price-line,
+  .plan-1 .price-line {
+    min-height: 0;
+    padding: 4px 0 18px;
+    gap: 5px 8px;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .price-line strong {
+    font-size: 44px;
+    line-height: 1.1;
+  }
+
+  .price-line span {
+    font-size: 12px;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+  .plan-button,
+  .plan-1 .plan-button {
+    width: 100%;
+    min-height: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .feature-list,
+  .plan-1 .feature-list {
+    width: 100%;
+    height: auto;
+    margin: 20px 0 0;
+    padding: 18px 0 0;
+    gap: 12px;
+    border-top: 1px solid rgba(0, 0, 0, .14);
+    border-radius: 0;
+  }
+
+  .feature-list li {
+    width: 100%;
+    min-height: 20px;
+    padding: 0;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+  .feature-list li > span:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
